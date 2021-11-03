@@ -1,6 +1,7 @@
 package com.care.root;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 	
 	@Autowired
+	@Qualifier("mmm")		//mmm이름을 가진 bean을 넣어줄 것
 	MemberService ms;
 	
 // java문법 스타일

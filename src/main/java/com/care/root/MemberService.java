@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 
 // Service : 연산
 
-@Service
+@Service("mmm")	//이름 부여
+//@Service
 public class MemberService {
 
 	@Autowired
