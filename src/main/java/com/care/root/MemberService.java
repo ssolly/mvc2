@@ -1,5 +1,6 @@
 package com.care.root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 // Service : 연산
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberService {
 
+	@Autowired
 	MemberDAO dao;
 	
 	public MemberService() {
@@ -20,6 +22,7 @@ public class MemberService {
 //	}
 	
 	public int insert() {
+		System.out.println("dao : " + dao);
 		return dao.insert();
 	}
 }

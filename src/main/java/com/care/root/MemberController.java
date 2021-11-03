@@ -1,5 +1,6 @@
 package com.care.root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller	
 public class MemberController {
+	
+	@Autowired
 	MemberService ms;
 	
 // java문법 스타일
@@ -21,8 +24,9 @@ public class MemberController {
 	
 	@RequestMapping("insert")
 	public String insert(Model model) {
-		//int result = ms.insert();
-		model.addAttribute("result",0);
+		int result = ms.insert();
+		System.out.println("ms : " + ms);
+		model.addAttribute("result",result);
 		return "di/index";
 	}
 }
