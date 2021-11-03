@@ -7,20 +7,21 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- DispatcherServlet 설정 내용 -->
 	
-	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- @Controller 어노테이션을 자동적으로 빈(객체)으로 등록해준다 -->
 	<annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- 정적파일(html,css,img,js)들 경로를 설정 : webapp/resources/** -->
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- view resolver : 컨트롤러가 리턴으로 돌려준 문자를 'prefix+문자+suffix'로 만들어서 전달 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 어노테이션이 붙어있는 것들을 빈으로 등록해준다 -->
 	<context:component-scan base-package="com.care.root" />
 	
 	
